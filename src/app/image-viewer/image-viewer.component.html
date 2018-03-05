@@ -1,0 +1,26 @@
+<div *ngIf="imagesData.length" id="image-grid" class="image-grid" xmlns="http://www.w3.org/1999/html">
+  <div class="row no-gutters">
+    <div *ngFor="let image of imagesData; let i = index"
+         [ngClass]="{'image-expanded': image.height === '900px'}"
+         [ngStyle]="{'height': image.height}">
+      <div class="col image-thumbnail">
+          <span class="helper"></span>
+          <img src="{{image.thumbnailUrl}}" (click)="openImageExpander(i)" alt="img02"/>
+      </div>
+      <div class="image-expander" [ngStyle]="{'height': image.expanderHeight}" >
+        <div class="image-expander-inner" [ngStyle]="{'display': 'flex'}">
+          <span class="image-close" (click)="closeImageExpander(i)"></span>
+          <div class="image-fullimg">
+            <!--<div class="image-loading"></div>-->
+            <img src="{{image.previewUrl}}">
+          </div>
+          <div class="image-details">
+            <ng-container *ngTemplateOutlet="parentTemplate; context: { $implicit: image }">
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>Angular Image Viewer</h1>
+</div>
+<app-image-viewer [images]="images">
+  <ng-template let-image>
+    <div class="image">
+      <h2>{{ image.thumbnailUrl }}</h2>
+      <p>{{ image.previewUrl }}</p>
+    </div>
+  </ng-template>
+</app-image-viewer>
