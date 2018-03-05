@@ -40,7 +40,7 @@ export class ImageViewerComponent implements OnInit {
         thumbnailUrl: image.thumbnailUrl,
         previewUrl: image.reviewUrl,
         expanderHeight: '0px',
-        height: '250px'
+        height: '220px'
       })
     });
 
@@ -50,10 +50,10 @@ export class ImageViewerComponent implements OnInit {
   openImageExpander(imagePosition: number) {
     _.forEach(this.imagesData, function (image, index) {
       if(index === imagePosition){
-        image.height = '900px';
+        image.height = '860px';
         image.expanderHeight = '640px';
       }else{
-        image.height = '250px';
+        image.height = '220px';
         image.expanderHeight = '0px';
       }
     });
@@ -62,7 +62,7 @@ export class ImageViewerComponent implements OnInit {
   closeImageExpander(imagePosition: number){
     _.forEach(this.imagesData, function (image, index) {
       if(index === imagePosition){
-        image.height = '250px';
+        image.height = '220px';
         image.expanderHeight = '0px';
       }
     });
