@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  bgColor = '#505558';
+  textColor= '#fff';
   images=[
     {
       thumbnailUrl: 'assets/images/download.jpg',

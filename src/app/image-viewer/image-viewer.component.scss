@@ -19,6 +19,7 @@
   display: inline-block;
   border: 1px solid #eee;
   margin: 5px;
+  padding: 0px;
 
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
@@ -45,9 +46,7 @@ img {
 .image-grid div > a img {
   border: none;
   outline: none;
-  position: relative;
 }
-
 
 .image-grid .image-expanded .image-thumbnail > a::after {
   top: auto;
@@ -66,7 +65,6 @@ img {
 
 .image-expander {
   position: absolute;
-  background: #505558;
   top: auto;
   left: 0;
   width: 100%;
@@ -89,6 +87,17 @@ img {
   cursor: pointer;
 }
 
+.image-position{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
 .image-close::before,
 .image-close::after {
   content: '';
@@ -106,7 +115,7 @@ img {
 
 .image-close:hover::before,
 .image-close:hover::after {
-  background: #333;
+  background: #ff8200;
 }
 
 .image-fullimg,
@@ -116,6 +125,7 @@ img {
   height: 100%;
   overflow: hidden;
   position: relative;
+  word-wrap: break-word;
 }
 
 .image-details {
@@ -171,23 +181,35 @@ img {
   color: #fff;
 }
 
-.image-loading {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #ddd;
-  box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -25px 0 0 -25px;
-  animation: loader 0.5s infinite ease-in-out both;
+.prev {
+  float: right;
+  left: 0px;
+  margin-left: 16px;
+  border-radius: 3px 0px 0px 3px;
 }
 
-@keyframes loader {
-  0% { background: #ddd; }
-  33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-  66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+.next {
+  float: right;
+  right: 0px;
+  margin-right: 16px;
+  border-radius: 0 3px 3px 0;
+}
+
+.prev,
+.next {
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  background-color: #ff8200;
+  color: #fff !important;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 8px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 }
 
 

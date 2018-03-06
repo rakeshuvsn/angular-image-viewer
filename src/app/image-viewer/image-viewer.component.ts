@@ -9,16 +9,10 @@ import * as _ from "lodash";
 })
 export class ImageViewerComponent implements OnInit {
   windowSize: any;
-  // current expanded item´s index
-  currentImage = -1;
-  // position (top) of the expanded item
-  // used to know if the preview will expand in a different row
-  previewPosition = -1;
-  // extra amount of pixels to scroll the window
-  scrollExtra = 0;
-  // extra margin when expanded (between the preview element and the next item row)
-  marginExpanded = 10;
+  selectedIndex: number = 0;
   @Input() images: any;
+  @Input() expanderBgColor: string;
+  @Input() expanderTextColor: string;
   @ContentChild(TemplateRef) parentTemplate;
   public imagesData: Array<any>;
   constructor() {
@@ -27,9 +21,14 @@ export class ImageViewerComponent implements OnInit {
 
   ngOnInit() {
     this.getWinSize();
-    console.log(this.images);
     this.imagesData = this.getImagesData(this.images);
+    if(!this.expanderBgColor){
+      this.expanderBgColor = '#505558';
+    }
 
+    if(!this.expanderTextColor){
+      this.expanderTextColor = '#fff';
+    }
   }
 
   getImagesData(images): Array<any>{
@@ -48,6 +47,7 @@ export class ImageViewerComponent implements OnInit {
   }
 
   openImageExpander(imagePosition: number) {
+    this.selectedIndex = imagePosition;
     _.forEach(this.imagesData, function (image, index) {
       if(index === imagePosition){
         image.height = '860px';
@@ -60,12 +60,26 @@ export class ImageViewerComponent implements OnInit {
   }
 
   closeImageExpander(imagePosition: number){
+    this.selectedIndex = imagePosition;
     _.forEach(this.imagesData, function (image, index) {
       if(index === imagePosition){
         image.height = '220px';
         image.expanderHeight = '0px';
       }
     });
+  }
+
+  plusSlides(n: number): void {
+    this.selectedIndex += n;
+    this.openImageExpander(this.selectedIndex);
+  }
+
+  showPrevButton(): boolean {
+    return this.selectedIndex !== 0;
+  }
+
+  showNextButton(): boolean {
+    return this.selectedIndex !== this.images.length - 1;
   }
 
   getWinSize() {
