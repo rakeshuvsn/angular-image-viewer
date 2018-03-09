@@ -3,7 +3,7 @@ node_js:
   - 6.9.5
 script:
   - "npm install"
-  - "npm install -g angular-cli"
+  - "npm install -g @angular/cli"
   - "ng build --prod"
 deploy:
   provider: npm
