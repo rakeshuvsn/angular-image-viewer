@@ -7,7 +7,7 @@ script:
   - "ng build --prod"
 deploy:
   provider: npm
-  email: "vsnrakesh.u@gmail.com.com"
+  email: "vsnrakesh.u@gmail.com"
   api_key: "455c844d-cdc5-488c-a76f-e15d344a3dc6"
   on:
     tags: true
