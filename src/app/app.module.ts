@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import { ImageViewerModule } from './image-viewer/image-viewer.module';
 import { ImageDetailsComponent } from './image-details/image-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageViewerComponent,
     ImageDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ImageViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
