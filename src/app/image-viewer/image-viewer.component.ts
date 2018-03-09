@@ -1,4 +1,11 @@
-import {Component, OnInit, Input, ViewEncapsulation, TemplateRef, ContentChild} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewEncapsulation,
+  TemplateRef,
+  ContentChild
+} from '@angular/core';
 import * as _ from "lodash";
 @Component({
   moduleId: module.id,
